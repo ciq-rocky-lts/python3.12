@@ -20,7 +20,7 @@ URL: https://www.python.org/
 #global prerel ...
 %global upstream_version %{general_version}%{?prerel}
 Version: %{general_version}%{?prerel:~%{prerel}}
-Release:        1.3%{?dist}.2
+Release:        1.6%{?dist}.2
 License: Python-2.0.1
 
 
@@ -405,6 +405,24 @@ Patch468: python3.12-3.12.13-CVE-2026-6100.patch
 Patch469: python3.12-3.12.13-CVE-2026-4519.patch
 # CVE-2026-4786 (amazon)
 Patch470: python3.12-3.12.13-CVE-2026-4786.patch
+# CVE-2025-13837
+Patch471: python3.12-3.12.13-CVE-2025-13837.patch
+# CVE-2025-15282
+Patch472: python3.12-3.12.13-CVE-2025-15282.patch
+# CVE-2026-0672
+Patch473: python3.12-3.12.13-CVE-2026-0672.patch
+# CVE-2026-3644 (depends on CVE-2026-0672)
+Patch474: python3.12-3.12.13-CVE-2026-3644.patch
+# CVE-2026-2297 (no upstream test — see commit gh-145506/PR #145507)
+Patch475: python3.12-3.12.13-CVE-2026-2297.patch
+# CVE-2026-1502
+Patch476: python3.12-3.12.13-CVE-2026-1502.patch
+# CVE-2026-4224
+Patch477: python3.12-3.12.13-CVE-2026-4224.patch
+# CVE-2025-12084 - verbatim from Rocky Linux: https://git.rockylinux.org/staging/rpms/python3.12/-/raw/6952b5c42729e5f9f713de25652281a3e191307d/SOURCES/00471-cve-2025-12084.patch
+Patch478: 00471-cve-2025-12084.patch
+# CVE-2025-8291 - adapted from github.com: https://github.com/python/cpython/commit/8392b2f0d35678407d9ce7d95655a5b77de161b4.patch (index lines regenerated for the target tree)
+Patch479: python3.12-3.12.12-CVE-2025-8291.patch
 
 # (New patches go here ^^^)
 #
@@ -1720,6 +1738,16 @@ CheckPython optimized
 # ======================================================
 
 %changelog
+* Wed Oct 28 2026 Jason Rodriguez <jrodriguez@ciq.com> - 3.12.9-1.6.2
+- Fix CVE-2025-12084
+- Fix CVE-2025-8291
+
+* Thu Jul 16 2026 Jason Rodriguez <jrodriguez@ciq.com> - 3.12.9-1.5.2
+- Fix CVE-2025-15282, CVE-2026-0672, CVE-2026-3644, CVE-2026-2297, CVE-2026-1502, CVE-2026-4224
+
+* Thu Jul 16 2026 Jason Rodriguez <jrodriguez@ciq.com> - 3.12.9-1.4.2
+- Fix CVE-2025-13837
+
 * Mon Jul 13 2026 Jeff Uphoff <juphoff@ciq.com> - 3.12.9-1.3.2
 - Fix CVE-2026-4786
 
